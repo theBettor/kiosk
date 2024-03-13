@@ -1,22 +1,21 @@
 package com.example.kiosk
 
-//대분류의 메뉴를 번호로
-//        해당하는 숫자 입력하면 세부 메뉴로
-//        반복문을 이용해서 메뉴를 선택할 수 있게 유지하고 대분류 메뉴에서, 0번이 입력되면 프로그램 종료
-
+// main -> Kiosk Class -> Korean Class 순으로 코드 작성 이유를 주석으로 남기고자 함.
 fun main() {
     var kiosk = Kiosk()
-    var korean = Korean()
+    var koreanKiosk = Korean()
+    var chineseKiosk = Chinese()
+    var japaneseKiosk = Japanese()
 
     while (true) {
-        kiosk.greet()
+        kiosk.greet() // 환영 멘트
         val nationSelect = readln().toInt()
         if (nationSelect == 0) {
             println("메인 화면으로")
-            break
+            break // 프로그램 종료
         }
 
-        when (nationSelect) {
+        when (nationSelect) { // 한식을 먹고자해서 1번을 고르면, 한식 메뉴를 안내 해준다.
             1 -> {
                 kiosk.koreanMenuList()
             }
@@ -33,9 +32,11 @@ fun main() {
         println("원하시는 식사류의 음식을 선택하여 주십시오.")
         val detailsSelect = readln().toInt()
         if (detailsSelect == 0) {
-            continue
+            continue // 메뉴를 선택해야 하는 순간에, 다른 식사류로 바꾸고 싶다면 0으로 뒤로 갈 수 있게 구현
         }
-        korean.displayInfo(detailsSelect)
+        kiosk.displayInfo(koreanKiosk, chineseKiosk, japaneseKiosk, nationSelect, detailsSelect) // Kiosk 클래스의 메서드를 통해 주문이 완료 되었음을 표시
         break
     }
 }
+
+// 여기까지는 만족! 다음은 Kiosk Class로 이동.
