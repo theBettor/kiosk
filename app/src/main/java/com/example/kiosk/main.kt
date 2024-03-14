@@ -3,9 +3,14 @@ package com.example.kiosk
 // main -> Kiosk Class -> Korean Class 순으로 코드 작성 이유를 주석으로 남기고자 함.
 fun main() {
     var kiosk = Kiosk()
-    var koreanKiosk = Korean()
-    var chineseKiosk = Chinese()
-    var japaneseKiosk = Japanese()
+    var a = Korean.CursingGMGukbap()
+    var b = Korean.TwoSunnySideup()
+    var c = Chinese.LambSkewersAndBeer()
+    var d = Chinese.UhanStreetFoodTour()
+    var e = Japanese.GMMGOmelet()
+    var f = Japanese.SquidFishingBoatTour()
+
+
 
     while (true) {
         kiosk.greet() // 환영 멘트
@@ -34,7 +39,7 @@ fun main() {
         if (detailsSelect == 0) {
             continue // 메뉴를 선택해야 하는 순간에, 다른 식사류로 바꾸고 싶다면 0으로 뒤로 갈 수 있게 구현
         }
-        kiosk.displayInfo(koreanKiosk, chineseKiosk, japaneseKiosk, nationSelect, detailsSelect) // Kiosk 클래스의 메서드를 통해 주문이 완료 되었음을 표시
+        kiosk.displayInfo(a, b, c, d, e, f, nationSelect, detailsSelect) // Kiosk 클래스의 메서드를 통해 주문이 완료 되었음을 표시
         break
     }
 }
