@@ -2,6 +2,8 @@ package com.example.kiosk
 
 open class Kiosk {
 
+
+
     // 원래 여기에
 //    var koreanKiosk = Korean()
     // 이런식으로 한중일식 클래스들을 객체화? 했는데, 자식 클래스에서는 부모 클랙스를 이미 상복 받고 있는데 부모 클래스 내에서 자식 클래스를 상속 받는 양방향 상속(?) 같은 상황 때문에 에러가 떠서 다 빼고 main에만 객체화(?)를 하고 있다.
@@ -80,7 +82,7 @@ public class Korean : Kiosk() { // 프로퍼티와 메소드를 만들라고 했
     }
 }
 
-public class Chinese {
+public class Chinese: Food() {
     class LambSkewersAndBeer {
         val lsab = "[양꼬치와 칭따오 꼬탄주] 주문이 완료 되었습니다."
     }
@@ -89,7 +91,7 @@ public class Chinese {
     }
 }
 
-public class Japanese : Kiosk() { // 프로퍼티와 메소 ex. name, price, displayinfo
+public class Japanese : Food() { // 프로퍼티와 메소 ex. name, price, displayinfo
     class GMMGOmelet {
         val omlet = "[경영 메이드의 모에모에 뀽 오믈렛] 주문이 완료 되었습니다."
     }
