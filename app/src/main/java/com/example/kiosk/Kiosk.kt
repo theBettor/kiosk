@@ -80,7 +80,7 @@ public class Korean : Kiosk() { // 프로퍼티와 메소드를 만들라고 했
     }
 }
 
-public class Chinese {
+public class Chinese: Kiosk() {
     class LambSkewersAndBeer {
         val lsab = "[양꼬치와 칭따오 꼬탄주] 주문이 완료 되었습니다."
     }
