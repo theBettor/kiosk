@@ -33,34 +33,70 @@ open class Kiosk {
 //    }
 
     // 위에 주석처리된 코드는 원래 Korean 클래스에 있던 것인데 지우기 아까워서 남겨두었음. 지금은 무용지물
-    fun displayInfo(koreanKiosk: Korean, chineseKiosk: Chinese, japaneseKiosk: Japanese, nationSelect: Int, detailsSelect: Int) { // 한중일 클래스의 프로퍼티들을 다 여기서 받아가지고 main에서 쓸 수 있게끔 하는 함수를 만들었다. 이게 내가 제일 구현하고 싶었던 기능
+    fun displayInfo(a: Korean.CursingGMGukbap, b: Korean.TwoSunnySideup, c: Chinese.LambSkewersAndBeer, d: Chinese.UhanStreetFoodTour,e: Japanese.GMMGOmelet, f: Japanese.SquidFishingBoatTour, nationSelect: Int, detailsSelect: Int) { // 한중일 클래스의 프로퍼티들을 다 여기서 받아가지고 main에서 쓸 수 있게끔 하는 함수를 만들었다. 이게 내가 제일 구현하고 싶었던 기능
         // 한중일을 골라야 하는 중에 한식을 골랐는데 그 중에 1번 음식을 골랐다면, 한식 클래스의 프로퍼티 중 배열의 0번째 인덱스 값을 출력하는 코드를 작성
         if (nationSelect == 1) {
             if (detailsSelect == 1) {
-                println(koreanKiosk.koreanMenuName[0])
+                println(a.gukbap) // 무지성으로 계속 korean으로만 상속하려고 했는데 국밥은 컬싱 클래스 안에 있는거라 Korean.CursingGMGukbap 클래스를 상속해야한다.
             } else if (detailsSelect == 2) {
-                println(koreanKiosk.koreanMenuName[1])
+                println(b.ssu)
             } else if (detailsSelect == 0) {
-                println(koreanKiosk.koreanMenuName[2])
+                println("뒤로 가기")
             }
         } else if (nationSelect == 2) {
             if (detailsSelect == 1) {
-                println(chineseKiosk.chineseMenuName[0])
+                println(c.lsab)
             } else if (detailsSelect == 2) {
-                println(chineseKiosk.chineseMenuName[1])
+                println(d.usft)
             } else if (detailsSelect == 0) {
-                println(chineseKiosk.chineseMenuName[2])
+                println("뒤로 가기")
             }
         } else if (nationSelect == 3) {
             if (detailsSelect == 1) {
-                println(japaneseKiosk.japaneseMenuName[0])
+                println(e.omlet)
             } else if (detailsSelect == 2) {
-                println(japaneseKiosk.japaneseMenuName[1])
+                println(f.sfbt)
             } else if (detailsSelect == 0) {
-                println(japaneseKiosk.japaneseMenuName[2])
+                println("뒤로 가기")
             }
         }
     }
+
 }
 
-// 여기까지도 의도대로 완성, 다음 Korean Class로 이동
+public class Korean : Kiosk() { // 프로퍼티와 메소드를 만들라고 했다.(Ex. name, price, displayinfo)
+
+//    val koreanMenuName =
+//    val chineseMenuName =
+//    val japaneseMenuName =
+        // 이미 위의 displayinfo라는 메소드를 쓰고 있었고, 하위 클래스의 배열 프로퍼티를 쓰고 있어서 koreanMenuName은 배열값을 담은 상수였는데
+        // 지금은 아래 국밥 변수처럼 변수를 사용하기 때문에 주석처리하였다. 나중에 구현 시도해보면 좋을것 같아서 남겨 놓음.
+    open class CursingGMGukbap { // 여기에 원래 클래스 명 옆에 Korean()을 상속 받게 하려고 했는데 빨간줄 떠서 뭔가 고민하다가 당연히 내부 클래스로 만들고 있으니 또 선언해줄 필요 없다고 생각하게됨.
+        val gukbap = "[욕쟁이 할머니 국밥] 주문이 완료 되었습니다."
+        var price: Int = 0 // 아직 구현 안함, 우선순위 중에 당장 급한건 아닌 것 같아서
+    }
+    class TwoSunnySideup {
+        val ssu: String = "[계란 후라이 2개] 주문이 완료 되었습니다."
+    }
+}
+
+public class Chinese {
+    class LambSkewersAndBeer {
+        val lsab = "[양꼬치와 칭따오 꼬탄주] 주문이 완료 되었습니다."
+    }
+    class UhanStreetFoodTour {
+        val usft = "[우한 길거리 음식 투어] 주문이 완료 되었습니다."
+    }
+}
+
+public class Japanese : Kiosk() { // 프로퍼티와 메소 ex. name, price, displayinfo
+    class GMMGOmelet {
+        val omlet = "[경영 메이드의 모에모에 뀽 오믈렛] 주문이 완료 되었습니다."
+    }
+    class SquidFishingBoatTour {
+        val sfbt = "[대마도 오징어잡이 배 체험] 주문이 완료 되었습니다."
+    }
+}
+
+
+
